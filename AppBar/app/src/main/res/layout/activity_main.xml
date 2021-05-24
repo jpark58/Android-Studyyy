@@ -5,20 +5,45 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
     tools:context=".MainActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-        <com.google.android.material.appbar.MaterialToolbar
-            android:id="@+id/material_toolbar"
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
             android:layout_width="match_parent"
-            android:layout_height="60dp"
-            app:navigationIcon="@drawable/ic_menu"
+            android:layout_height="128dp"
+            app:expandedTitleMarginStart="78dp"
+            app:expandedTitleMarginBottom="22dp"
             app:title="toolbar example"
-            style="@style/Widget.MaterialComponents.Toolbar.Primary"
-            app:layout_scrollFlags="scroll|snap|enterAlways"
-            />
+            app:expandedTitleTextAppearance="@style/TextAppearance.App.CollapsingToolbar.Expanded"
+            app:collapsedTitleTextAppearance="@style/TextAppearance.App.CollapsingToolbar.Collapsed"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed|snap"
+            app:statusBarScrim="@android:color/transparent"
+            >
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/bg"
+                />
+
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/material_toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:elevation="0dp"
+                app:navigationIcon="@drawable/ic_menu"
+                style="@style/Widget.MaterialComponents.Toolbar.Primary"
+                app:layout_scrollFlags="scroll|snap|enterAlways"
+                android:background="@android:color/transparent"
+                app:layout_collapseMode="pin"
+                />
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.core.widget.NestedScrollView
@@ -56,7 +81,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 android:id="@+id/tv_3"
                 android:text="hello3"
-                android:background="#BFFFG7"/>
+                android:background="#03A9F4"/>
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
